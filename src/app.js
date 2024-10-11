@@ -8,7 +8,12 @@ const prisma = new PrismaClient();
 
 // Middleware
 app.use(helmet()); // Adds basic security headers
-app.use(cors(origin: true))// Enables CORS for cross-origin requests
+app.use(
+  cors({
+    origin: ['https://dataseed.vercel.app', 'http://localhost:3000'], // Allow only this domain
+    credentials: true, // Allow credentials (cookies, authorization headers)
+  })
+);
 app.use(express.json()); // Parses incoming JSON requests
 
 // Sample route to get all farmers
