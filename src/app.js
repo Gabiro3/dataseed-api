@@ -8,7 +8,7 @@ const prisma = new PrismaClient();
 
 // Middleware
 app.use(helmet()); // Adds basic security headers
-// Enables CORS for cross-origin requests
+app.use(cors(origin: true))// Enables CORS for cross-origin requests
 app.use(express.json()); // Parses incoming JSON requests
 
 // Sample route to get all farmers
